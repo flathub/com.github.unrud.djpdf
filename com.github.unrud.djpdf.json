@@ -472,8 +472,8 @@
         {
           "type": "git",
           "url": "https://github.com/Unrud/djpdf",
-          "tag": "0.0.4",
-          "commit": "13c83d892b73096bee11c4c6982e4e47d9f5d98b"
+          "tag": "0.0.5",
+          "commit": "58ab29073750c52a21a640bc1d4c060e4ae313cc"
         }
       ]
     }
