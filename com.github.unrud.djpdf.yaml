@@ -24,6 +24,10 @@ modules:
     cleanup:
       - /qt5include
       - /bin
+      - /include
+      - /lib/cmake
+      - /lib/pkgconfig
+      - /share/man
     sources:
       - type: archive
         url: http://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.3-src/pyside-setup-everywhere-src-5.12.3.tar.xz
@@ -66,13 +70,14 @@ modules:
       - /lib/pkgconfig
       - /lib/*.la
       - /lib/*.a
+      - /lib/openjpeg-*/*.cmake
 
   - name: imagemagick
     sources:
       - type: git
         url: https://github.com/ImageMagick/ImageMagick
-        tag: 7.0.8-43
-        commit: 723c2bd9cc716a9267a8afe08354d67bb60dabd5
+        tag: 7.0.8-49
+        commit: ec9498c7945dc0700e09e2d2ad458379251969e1
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -84,14 +89,15 @@ modules:
   - name: qpdf
     sources:
       - type: archive
-        url: https://github.com/qpdf/qpdf/archive/release-qpdf-8.4.1.tar.gz
-        sha256: b8068d4ce23b5c8b3600fd83d6d88744f897c1e1b62a63bbff668e72984c38bb
+        url: https://github.com/qpdf/qpdf/archive/release-qpdf-8.4.2.tar.gz
+        sha256: 741a171295e561eadf0285ae6b0b821632f9773b8db0daa95df4dc565bf566bb
     cleanup:
       - /include
       - /lib/pkgconfig
       - /lib/*.la
       - /lib/*.a
       - /share/doc
+      - /share/man
 
   - name: tesseract
     sources:
@@ -147,10 +153,42 @@ modules:
         url: https://github.com/tesseract-ocr/tessdata/raw/4.0.0/equ.traineddata
         sha256: 8f660323d8a7b7a0e8d2fae1a3439e6e470222bfbb990b2ab7fe9e1fb4791c0b
 
+  - name: exempi
+    config-opts:
+      - --enable-unittest=no
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - /lib/*.la
+      - /lib/*.a
+      - /share/man
+    sources:
+      - type: archive
+        url: https://libopenraw.pages.freedesktop.org/download/exempi-2.5.0.tar.bz2
+        sha256: dc82fc24c0540a44a63fa4ad21775d24e00e63f1dedd3e2ae6f7aa27583b711b
+
+  - name: pytz
+    buildsystem: simple
+    build-commands:
+      - python3 -O -mpip install . --prefix=/app --no-index --find-links .
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/df/d5/3e3ff673e8f3096921b3f1b79ce04b832e0100b4741573154b72b756a681/pytz-2019.1.tar.gz
+        sha256: d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141
+
+  - name: xmp-toolkit
+    buildsystem: simple
+    build-commands:
+      - python3 -O -mpip install . --prefix=/app --no-index --find-links .
+    sources:
+      - type: git
+        url: https://github.com/python-xmp-toolkit/python-xmp-toolkit
+        commit: 5692bdf8dac3581a0d5fb3c5aeb29be0ab6a54fc
+
   - name: pdfrw
     buildsystem: simple
     build-commands:
-      - python3 -mpip install . --prefix=/app --no-index --find-links .
+      - python3 -O -mpip install . --prefix=/app --no-index --find-links .
     sources:
       - type: archive
         url: https://github.com/pmaupin/pdfrw/archive/v0.4.tar.gz
@@ -159,7 +197,7 @@ modules:
   - name: colorama
     buildsystem: simple
     build-commands:
-      - python3 -mpip install . --prefix=/app --no-index --find-links .
+      - python3 -O -mpip install . --prefix=/app --no-index --find-links .
     sources:
       - type: archive
         url: https://github.com/tartley/colorama/archive/0.4.1.tar.gz
@@ -168,15 +206,19 @@ modules:
   - name: webcolors
     buildsystem: simple
     build-commands:
-      - python3 -mpip install . --prefix=/app --no-index --find-links .
+      - python3 -O -mpip install . --prefix=/app --no-index --find-links .
     sources:
       - type: archive
-        url: https://github.com/ubernostrum/webcolors/archive/1.7.tar.gz
-        sha256: f9a96cae6e6a7138530e32c2537d38a2789d446d8c797f707c84fe7214e3035e
+        url: https://github.com/ubernostrum/webcolors/archive/1.9.1.tar.gz
+        sha256: ad6aee3b759b60e3eac7b72835f6a350995751f1c4dfdb56c4d42ca99740a616
 
   - name: dbus-python
     config-opts:
       - PYTHON_VERSION=3
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - '*.la'
     sources:
       - type: archive
         url: https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.8.tar.gz
@@ -185,25 +227,26 @@ modules:
   - name: psutil
     buildsystem: simple
     build-commands:
-      - python3 -mpip install . --prefix=/app --no-index --find-links .
+      - python3 -O -mpip install . --prefix=/app --no-index --find-links .
     sources:
       - type: archive
-        url: https://github.com/giampaolo/psutil/archive/release-5.6.2.tar.gz
-        sha256: c9156236d47bb0ca557ae9af69ced377f0a63386c594cbe5dd451cc986aca0c2
+        url: https://github.com/giampaolo/psutil/archive/release-5.6.3.tar.gz
+        sha256: 55b86dc0a9fc4e258ae5d86d6edf317432a4e3dc45c7324b8a82838b07e74f4a
 
   - name: djpdf
     buildsystem: simple
     build-commands:
       - sed -i 's/"pyside2", //' setup.py # not installed with setuptools
-      - python3 -mpip install . --prefix=/app --no-index --find-links .
-      - install -Dm0644 desktop/scans2pdf_64.png /app/share/icons/hicolor/64x64/apps/com.github.unrud.djpdf.png
-      - install -Dm0644 desktop/scans2pdf_128.png /app/share/icons/hicolor/128x128/apps/com.github.unrud.djpdf.png
-      - install -Dm0644 desktop/scans2pdf_256.png /app/share/icons/hicolor/256x256/apps/com.github.unrud.djpdf.png
-      - install -Dm0644 desktop/scans2pdf_512.png /app/share/icons/hicolor/512x512/apps/com.github.unrud.djpdf.png
+      - python3 -O -mpip install . --prefix=/app --no-index --find-links .
       - install -Dm0644 -t /app/share/appdata desktop/com.github.unrud.djpdf.appdata.xml
       - install -Dm0644 -t /app/share/applications desktop/com.github.unrud.djpdf.desktop
+      - |
+        for _size in 16 32 48 64 128 256 512; do
+          convert +set date:create +set date:modify desktop/com.github.unrud.djpdf.png -resize ${_size}x${_size} com.github.unrud.djpdf_${_size}.png || exit 1
+          install -Dm0644 com.github.unrud.djpdf_${_size}.png /app/share/icons/hicolor/${_size}x${_size}/apps/com.github.unrud.djpdf.png || exit 1
+        done
     sources:
       - type: git
         url: https://github.com/Unrud/djpdf
-        tag: 0.0.10
-        commit: b9aa101a5a1fdc22cc518ae477b522436b7a5ecf
+        tag: 0.1.0
+        commit: e210a03a01d0f08c40ed8c80b1f1522a1bace8b8
