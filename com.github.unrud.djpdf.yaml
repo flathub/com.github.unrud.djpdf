@@ -1017,5 +1017,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/Unrud/djpdf
-        tag: 0.1.6
-        commit: 4049afa9da9cd9727ee35bd449d218199ecfaeb5
+        tag: v0.1.7
+        commit: e9fdca8d6ce30b72e94e873fdd9edd3e69b78fc8
