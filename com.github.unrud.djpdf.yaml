@@ -11,6 +11,8 @@ finish-args:
   - --device=dri
   - --share=ipc
   - --env=DJPDF_PLATFORM=xdg-desktop-portal
+  # Qt: Prefer x11 to wayland
+  - --env=QT_QPA_PLATFORM=xcb;wayland
 cleanup:
   - '*.a'
   - '*.la'
@@ -1084,8 +1086,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Unrud/djpdf
-        tag: v0.2.0
-        commit: edbf4e9bf4872225a97df1ab65dedd08b30bef04
+        tag: v0.2.1
+        commit: dbdc72da85ba4b7445a1913c185c61dd673f504b
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Unrud/djpdf/releases/latest
