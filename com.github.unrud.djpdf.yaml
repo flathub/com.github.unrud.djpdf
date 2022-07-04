@@ -1,6 +1,6 @@
 app-id: com.github.unrud.djpdf
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm13
@@ -844,13 +844,13 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.3-src/pyside-setup-opensource-src-5.15.3.tar.xz
-        sha256: 7ff5f1cc4291fffb6d5a3098b3090abe4d415da2adec740b4e901893d95d7137
+        url: https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.5-src/pyside-setup-opensource-src-5.15.5.tar.xz
+        sha256: 3920a4fb353300260c9bc46ff70f1fb975c5e7efa22e9d51222588928ce19b33
         x-checker-data:
           type: html
           url: https://download.qt.io/official_releases/QtForPython/pyside2/
           version-pattern: '>PySide2-([\d.]+)-src/<'
-          versions: {'>=': '5.15', '<': '5.16'}
+          versions: {'>=': '5.15', <: '5.16'}
           url-template: https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-$version-src/pyside-setup-opensource-src-$version.tar.xz
       - type: shell
         # use qt5include
@@ -865,8 +865,8 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/DanBloomberg/leptonica/releases/latest
-          version-query: '.tag_name'
-          url-query: '.assets[] | select(.name == "leptonica-" + $version + ".tar.gz").browser_download_url'
+          version-query: .tag_name
+          url-query: .assets[] | select(.name == "leptonica-" + $version + ".tar.gz").browser_download_url
 
   - name: jbig2enc
     sources:
@@ -876,19 +876,21 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/agl/jbig2enc/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/agl/jbig2enc/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: .tag_name
+          url-query: '"https://github.com/agl/jbig2enc/archive/refs/tags/" + $version
+            + ".tar.gz"'
 
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-39.tar.gz
-        sha256: eb8150517933caad6288a0fbf01e7616bfe95d0f650fac227541668ee10aff05
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-40.tar.gz
+        sha256: 1e729073dffbddcba599a96706e4657a40c431629e16041d716fe78ba341a448
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/ImageMagick/ImageMagick/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: .tag_name
+          url-query: '"https://github.com/ImageMagick/ImageMagick/archive/refs/tags/"
+            + $version + ".tar.gz"'
 
   - name: qpdf
     sources:
@@ -898,8 +900,9 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qpdf/qpdf/releases/latest
-          version-query: '.tag_name'
-          url-query: '.assets[] | select(.name == "qpdf-" + ($version | sub("^release-qpdf-"; "")) + ".tar.gz").browser_download_url'
+          version-query: .tag_name
+          url-query: .assets[] | select(.name == "qpdf-" + ($version | sub("^release-qpdf-";
+            "")) + ".tar.gz").browser_download_url
 
   - name: tesseract
     sources:
@@ -909,8 +912,9 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/tesseract-ocr/tesseract/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/tesseract-ocr/tesseract/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: .tag_name
+          url-query: '"https://github.com/tesseract-ocr/tesseract/archive/refs/tags/"
+            + $version + ".tar.gz"'
 
   - name: tessdata
     buildsystem: simple
@@ -955,8 +959,9 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/tesseract-ocr/tessdata_best/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/tesseract-ocr/tessdata_best/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: .tag_name
+          url-query: '"https://github.com/tesseract-ocr/tessdata_best/archive/refs/tags/"
+            + $version + ".tar.gz"'
       - type: file
         path: ocr-extension-info.txt
       - type: file
@@ -973,12 +978,12 @@ modules:
       - --enable-unittest=no
     sources:
       - type: archive
-        url: https://libopenraw.freedesktop.org/download/exempi-2.6.1.tar.bz2
-        sha256: 072451ac1e0dc97ed69a2e5bfc235fd94fe093d837f65584d0e3581af5db18cd
+        url: https://libopenraw.freedesktop.org/download/exempi-2.6.2.tar.bz2
+        sha256: 4d17d4c93df2a95da3e3172c45b7a5bf317dd31dafd1c7a340169728c7089d1d
         x-checker-data:
           type: html
           url: https://libopenraw.freedesktop.org/exempi/
-          pattern: 'href="((?:[^"]*/)?exempi-([\d.]+)\.tar\.bz2)"'
+          pattern: href="((?:[^"]*/)?exempi-([\d.]+)\.tar\.bz2)"
       - type: shell
         commands:
           - cp /usr/share/gnu-config/config.{guess,sub} .
@@ -1015,8 +1020,9 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/pmaupin/pdfrw/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/pmaupin/pdfrw/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: .tag_name
+          url-query: '"https://github.com/pmaupin/pdfrw/archive/refs/tags/" + $version
+            + ".tar.gz"'
 
   - name: colorama
     buildsystem: simple
@@ -1029,8 +1035,10 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/tartley/colorama/tags
-          version-query: '[.[].name | select(test("^v?[0-9.]+$"))] | sort_by(sub("^v"; "") | split(".") | map(tonumber))[-1]'
-          url-query: '"https://github.com/tartley/colorama/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: '[.[].name | select(test("^v?[0-9.]+$"))] | sort_by(sub("^v";
+            "") | split(".") | map(tonumber))[-1]'
+          url-query: '"https://github.com/tartley/colorama/archive/refs/tags/" + $version
+            + ".tar.gz"'
 
   - name: webcolors
     buildsystem: simple
@@ -1043,8 +1051,10 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ubernostrum/webcolors/tags
-          version-query: '[.[].name | select(test("^v?[0-9.]+$"))] | sort_by(sub("^v"; "") | split(".") | map(tonumber))[-1]'
-          url-query: '"https://github.com/ubernostrum/webcolors/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: '[.[].name | select(test("^v?[0-9.]+$"))] | sort_by(sub("^v";
+            "") | split(".") | map(tonumber))[-1]'
+          url-query: '"https://github.com/ubernostrum/webcolors/archive/refs/tags/"
+            + $version + ".tar.gz"'
 
   - name: dbus-python
     config-opts:
@@ -1069,8 +1079,10 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/giampaolo/psutil/tags
-          version-query: '[.[].name | select(test("^release-[0-9.]+$"))] | sort_by(sub("^release-"; "") | split(".") | map(tonumber))[-1]'
-          url-query: '"https://github.com/giampaolo/psutil/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: '[.[].name | select(test("^release-[0-9.]+$"))] | sort_by(sub("^release-";
+            "") | split(".") | map(tonumber))[-1]'
+          url-query: '"https://github.com/giampaolo/psutil/archive/refs/tags/" + $version
+            + ".tar.gz"'
 
   - name: djpdf
     buildsystem: simple
@@ -1091,4 +1103,4 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Unrud/djpdf/releases/latest
-          tag-query: '.tag_name'
+          tag-query: .tag_name
