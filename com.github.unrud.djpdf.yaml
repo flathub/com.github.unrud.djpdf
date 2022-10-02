@@ -1,6 +1,6 @@
 app-id: com.github.unrud.djpdf
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: '6.3'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm14
@@ -10,7 +10,6 @@ finish-args:
   - --socket=wayland
   - --device=dri
   - --share=ipc
-  - --env=DJPDF_PLATFORM=xdg-desktop-portal
   # Qt: Prefer x11 to wayland
   - --env=QT_QPA_PLATFORM=xcb;wayland
 cleanup:
@@ -195,7 +194,7 @@ modules:
       - mkdir -p /app/include/qt
       - cp -R /usr/include/Qt* /app/include/qt
 
-  - name: pyside2
+  - name: pyside6
     buildsystem: cmake-ninja
     builddir: true
     build-options:
@@ -208,34 +207,28 @@ modules:
       # Make packages discoverable by pip
       - |
         libpath=$(ls -d /app/lib/python*/site-packages) || exit 1
-        for pkg in PySide2 shiboken2; do
+        for pkg in PySide6 shiboken6; do
           version=$(python3 -c "import ${pkg}; print(${pkg}.__version__)") || exit 1
           printf 'Metadata-Version: 1.0\nName: %s\nVersion: %s\n' "${pkg}" "${version}" > "${libpath}/${pkg}.egg-info" || exit 1
         done
     cleanup:
       - /bin
     sources:
-      # PySide2>5.15.3 is broken on aarch64
       - type: archive
-        url: https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.6-src/pyside-setup-opensource-src-5.15.6.tar.xz
-        sha256: 171ee058d056599b8e9e8605fe3dae5dabdab7764285b21b28f64760a0f6779d
-        skip-arches:
-          - aarch64
+        url: https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.3.2-src/pyside-setup-opensource-src-6.3.2.tar.xz
+        sha256: d19979589e8946488e1b5e01ac0da75ab73b40c901726723335e160241a56892
         x-checker-data:
           type: html
-          url: https://download.qt.io/official_releases/QtForPython/pyside2/
-          version-pattern: '>PySide2-([\d.]+)-src/<'
-          versions: {'>=': '5.15', '<': '5.16'}
-          url-template: https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-$version-src/pyside-setup-opensource-src-$version.tar.xz
-      - type: archive
-        url: https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.3-src/pyside-setup-opensource-src-5.15.3.tar.xz
-        sha256: 7ff5f1cc4291fffb6d5a3098b3090abe4d415da2adec740b4e901893d95d7137
-        only-arches:
-          - aarch64
+          url: https://download.qt.io/official_releases/QtForPython/pyside6/
+          version-pattern: '>PySide6-([\d.]+)-src/<'
+          versions: {'>=': '6.3', '<': '6.4'}
+          url-template: https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-$version-src/pyside-setup-opensource-src-$version.tar.xz
       - type: shell
-        # use qt-include
         commands:
-          - sed -i 's|\(--include-paths=\)|\1/app/include/qt:|' sources/pyside2/cmake/Macros/PySideModules.cmake
+          # use qt-include
+          - sed -i 's|\(--include-paths=\)|\1/app/include/qt:|' sources/pyside6/cmake/Macros/PySideModules.cmake
+          # fix python module search path
+          - sed -i '/--sys-path\b/ a "${pysidebindings_BINARY_DIR}/.."' sources/pyside6/cmake/Macros/PySideModules.cmake
 
   - name: leptonica
     sources:
@@ -277,8 +270,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
       - type: archive
-        url: https://github.com/qpdf/qpdf/releases/download/v11.1.0/qpdf-11.1.0.tar.gz
-        sha256: 34a7cf3ac6e239510e9a20d7cbe10a4aff0f572c20e0a9bed0badb820a69e22d
+        url: https://github.com/qpdf/qpdf/releases/download/v11.1.1/qpdf-11.1.1.tar.gz
+        sha256: 25e8ec60e290cd134405a51920015b6d351d4e0b93b7b736d257f10725f74b5a
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qpdf/qpdf/releases/latest
@@ -341,8 +334,8 @@ modules:
       - pip3 install --prefix=/app .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/24/0c/401283bb1499768e33ddd2e1a35817c775405c1f047a9dc088a29ce2ea5d/pytz-2022.2.1.tar.gz
-        sha256: cea221417204f2d1a2aa03ddae3e867921971d0d76f14d87abb4414415bbdcf5
+        url: https://files.pythonhosted.org/packages/31/da/2d48d3499b59c7f3c5d5e1c79fcee5537c320c8ab7b7a0cd2db578bc34b3/pytz-2022.4.tar.gz
+        sha256: 48ce799d83b6f8aab2020e369b627446696619e79645419610b9facd909b3174
         x-checker-data:
           type: pypi
           name: pytz
@@ -436,8 +429,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Unrud/djpdf
-        tag: v0.3.1
-        commit: 959ba4ec313f73c5ea2876dd02fea81f9b2adb0b
+        tag: v0.4.0
+        commit: e3ea5fac582235ae2386b1ab821831b9a5531580
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Unrud/djpdf/releases/latest
