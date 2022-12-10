@@ -482,15 +482,12 @@ modules:
       - --enable-unittest=no
     sources:
       - type: archive
-        url: https://libopenraw.freedesktop.org/download/exempi-2.6.3.tar.bz2
-        sha256: b0749db18a9e78cf771737954a838cdcdb1d5415888bac1ba9caf8cba77c656c
+        url: https://libopenraw.freedesktop.org/download/exempi-2.6.3.tar.xz
+        sha256: 80b3aa0b7f54978c6a49cc5f5f1d3b6e9524b59de74ef92b3bf0abeba4c28fb1
         x-checker-data:
           type: html
           url: https://libopenraw.freedesktop.org/exempi/
-          pattern: href="((?:[^"]*/)?exempi-([\d.]+)\.tar\.bz2)"
-      - type: shell
-        commands:
-          - cp /usr/share/gnu-config/config.{guess,sub} .
+          pattern: href="((?:[^"]*/)?exempi-([\d.]+)\.tar\.xz)"
 
   - name: pytz
     buildsystem: simple
