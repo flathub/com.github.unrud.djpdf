@@ -391,8 +391,8 @@ modules:
   - name: leptonica
     sources:
       - type: archive
-        url: https://github.com/DanBloomberg/leptonica/releases/download/1.82.0/leptonica-1.82.0.tar.gz
-        sha256: 155302ee914668c27b6fe3ca9ff2da63b245f6d62f3061c8f27563774b8ae2d6
+        url: https://github.com/DanBloomberg/leptonica/releases/download/1.83.0/leptonica-1.83.0.tar.gz
+        sha256: 206591dd58cf84ef380836dad133b58c9d1af92491f5a9825c346a162044bcfe
         x-checker-data:
           type: json
           url: https://api.github.com/repos/DanBloomberg/leptonica/releases/latest
@@ -414,8 +414,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-55.tar.gz
-        sha256: 77e1535448d6c7f951a8c9d10804246b76044b879adf5bf1f12c836ed9d4b5ec
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-56.tar.gz
+        sha256: 58c36ca7bb7b3d78fee6036945e79e0bb57f67015af08bb58c20488df5158d88
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
