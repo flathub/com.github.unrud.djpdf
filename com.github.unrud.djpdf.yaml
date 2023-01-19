@@ -391,8 +391,8 @@ modules:
   - name: leptonica
     sources:
       - type: archive
-        url: https://github.com/DanBloomberg/leptonica/releases/download/1.82.0/leptonica-1.82.0.tar.gz
-        sha256: 155302ee914668c27b6fe3ca9ff2da63b245f6d62f3061c8f27563774b8ae2d6
+        url: https://github.com/DanBloomberg/leptonica/releases/download/1.83.0/leptonica-1.83.0.tar.gz
+        sha256: 206591dd58cf84ef380836dad133b58c9d1af92491f5a9825c346a162044bcfe
         x-checker-data:
           type: json
           url: https://api.github.com/repos/DanBloomberg/leptonica/releases/latest
@@ -495,8 +495,8 @@ modules:
       - pip3 install --prefix=/app .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/6d/37/54f2d7c147e42dc85ffbc6910862bb4f141fb3fc14d9a88efaa1a76c7df2/pytz-2022.7.tar.gz
-        sha256: 7ccfae7b4b2c067464a6733c6261673fdb8fd1be905460396b97a073e9fa683a
+        url: https://files.pythonhosted.org/packages/03/3e/dc5c793b62c60d0ca0b7e58f1fdd84d5aaa9f8df23e7589b39cc9ce20a03/pytz-2022.7.1.tar.gz
+        sha256: 01a0681c4b9684a28304615eba55d1ab31ae00bf68ec157ec3708a8182dbbcd0
         x-checker-data:
           type: pypi
           name: pytz
