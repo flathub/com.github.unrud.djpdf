@@ -409,8 +409,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-62.tar.gz
-        sha256: d282117bc6d0e91ad1ad685d096623b96ed8e229f911c891d83277b350ef884a
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-1.tar.gz
+        sha256: 5c84ec4b718d5123bb3214f7d37ac7d700d49de6ca7a86e84eef0a2f21e178c7
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
