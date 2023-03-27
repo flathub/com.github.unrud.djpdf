@@ -536,7 +536,7 @@ modules:
   - name: webcolors
     buildsystem: simple
     build-commands:
-      - pip3 install --prefix=/app .
+      - pip3 install --no-build-isolation --prefix=/app .
     sources:
       - type: archive
         url: https://github.com/ubernostrum/webcolors/archive/refs/tags/1.13.tar.gz
