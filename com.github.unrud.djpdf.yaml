@@ -409,8 +409,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-11.tar.gz
-        sha256: 98bb2783da7d5b06e7543529bd07b50d034fba611ff15e8817a0f4f73957d934
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-12.tar.gz
+        sha256: 51567d11fcbca5bd591d191ce9fdf821e2ed1b12c1ad8bc2a2f13da5c6313f33
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
@@ -477,8 +477,8 @@ modules:
       - --enable-unittest=no
     sources:
       - type: archive
-        url: https://libopenraw.freedesktop.org/download/exempi-2.6.3.tar.xz
-        sha256: 80b3aa0b7f54978c6a49cc5f5f1d3b6e9524b59de74ef92b3bf0abeba4c28fb1
+        url: https://libopenraw.freedesktop.org/download/exempi-2.6.4.tar.xz
+        sha256: fa9c2456bf570172f0877c4eb13cd204c62ae1fdf65c3d6b71b41d88e1066f84
         x-checker-data:
           type: html
           url: https://libopenraw.freedesktop.org/exempi/
