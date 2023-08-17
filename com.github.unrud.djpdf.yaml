@@ -409,8 +409,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-14.tar.gz
-        sha256: 7309ed7b66c8aa8f6780529e813db656275dc0893f4770cff2176a2949a282fa
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-15.tar.gz
+        sha256: 2372192a76af9be43c0543dd7ae6dfbf34b11fc0203583453ce3f9f707c36bcc
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
@@ -569,19 +569,16 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app .
-      - install -Dm0644 -t /app/share/metainfo desktop/com.github.unrud.djpdf.metainfo.xml
-      - install -Dm0644 -t /app/share/applications desktop/com.github.unrud.djpdf.desktop
-      - |
-        for res in 16 32 48 64 128 256 512; do
-          convert +set date:create +set date:modify desktop/com.github.unrud.djpdf.png -resize ${res}x${res} com.github.unrud.djpdf_${res}.png || exit 1
-          install -Dm0644 com.github.unrud.djpdf_${res}.png /app/share/icons/hicolor/${res}x${res}/apps/com.github.unrud.djpdf.png || exit 1
-        done
-    sources:
+    sources: &djpdf-sources
       - type: git
         url: https://github.com/Unrud/djpdf
-        tag: v0.4.3
-        commit: 9391f0ac87a515c28d34908da3cb2444d6767efd
+        tag: v0.5.0
+        commit: da84b826bf365d271f34b658264b6b9d47b7dead
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Unrud/djpdf/releases/latest
           tag-query: .tag_name
+
+  - name: djpdfgui
+    buildsystem: meson
+    sources: *djpdf-sources
