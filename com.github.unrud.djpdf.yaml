@@ -572,8 +572,8 @@ modules:
     sources: &djpdf-sources
       - type: git
         url: https://github.com/Unrud/djpdf
-        tag: v0.5.0
-        commit: da84b826bf365d271f34b658264b6b9d47b7dead
+        tag: v0.5.1
+        commit: cc45917d3e57e1cad31b8ada31cb3101429c8943
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Unrud/djpdf/releases/latest
