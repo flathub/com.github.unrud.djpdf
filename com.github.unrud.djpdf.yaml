@@ -379,8 +379,13 @@ modules:
           url: https://download.qt.io/official_releases/QtForPython/pyside6/
           version-pattern: '>PySide6-(6\.5(?:\.[\d.]+)?)-src/<'
           url-template: https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-$version-src/pyside-setup-everywhere-src-$version.tar.xz
+      - type: file
+        url: https://code.qt.io/cgit/pyside/pyside-setup.git/patch/sources/pyside6?id=63ef7628091c8827e3d0d688220d3ae165587eb2
+        sha256: 7f56a0ab367054c114f42a6cf8d2c49e68b0746a373236db5690101da6807102
+        dest-filename: qt-6.5.3-compatibility.patch
       - type: shell
         commands:
+          - patch -p1 < qt-6.5.3-compatibility.patch
           # use qt-include
           - sed -i 's|\(--include-paths=\)|\1/app/include/qt:|' sources/pyside6/cmake/Macros/PySideModules.cmake
           # fix python module search path
