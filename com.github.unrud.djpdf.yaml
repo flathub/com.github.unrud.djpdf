@@ -373,8 +373,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.6.0-src/pyside-setup-everywhere-src-6.6.0.tar.xz
-        sha256: 2dd002db8851a87173354f38aa8c6ec42d0ff1fac99ea422b29e2dfce52d1638
+        url: https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.6.1-src/pyside-setup-everywhere-src-6.6.1.tar.xz
+        sha256: 341f42483fbe58c88fa5b353eefa83ffcc4ec440bf6e87c1c7ffd278ed54d1ca
         x-checker-data:
           type: html
           url: https://download.qt.io/official_releases/QtForPython/pyside6/
@@ -408,8 +408,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-21.tar.gz
-        sha256: 09402e5f17c6575ef9f010bb2e21ae1710f1f3426f115ad4317ee9129c32608e
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-22.tar.gz
+        sha256: 6dc2ac4292319b995c6f46de117cbe33089006371c7f1e1310748dfdfda35441
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
