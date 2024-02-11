@@ -408,8 +408,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-27.tar.gz
-        sha256: 51114819ebed50b9f62403b6f7618ec3251dcaea1b1f5893728fbee02ceb3cfa
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.1-28.tar.gz
+        sha256: 691b6fe35aa39df351678fb626779bede8ba1b2f08ce1d95d421b9840a27a582
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
@@ -489,8 +489,8 @@ modules:
       - pip3 install --prefix=/app .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/69/4f/7bf883f12ad496ecc9514cd9e267b29a68b3e9629661a2bbc24f80eff168/pytz-2023.3.post1.tar.gz
-        sha256: 7b4fddbeb94a1eba4b557da24f19fdf9db575192544270a9101d8509f9f43d7b
+        url: https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz
+        sha256: 2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812
         x-checker-data:
           type: pypi
           name: pytz
