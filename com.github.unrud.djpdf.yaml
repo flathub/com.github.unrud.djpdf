@@ -538,8 +538,8 @@ modules:
       - pip3 install --no-build-isolation --prefix=/app .
     sources:
       - type: archive
-        url: https://github.com/ubernostrum/webcolors/archive/refs/tags/1.13.tar.gz
-        sha256: 51b5367692d5de19b8422ff5b07d4a2892fe868652d4e131e80250ecf100713a
+        url: https://github.com/ubernostrum/webcolors/archive/refs/tags/24.6.0.tar.gz
+        sha256: 923fea7ef85b3d32112a92d58c0263511110b21a3e85f725a795b65f46ccb3d0
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ubernostrum/webcolors/tags
