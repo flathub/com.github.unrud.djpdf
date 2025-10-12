@@ -1,6 +1,6 @@
 app-id: com.github.unrud.djpdf
 runtime: org.kde.Platform
-runtime-version: '6.8'
+runtime-version: '6.9'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm19
@@ -383,12 +383,12 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.8.3-src/pyside-setup-everywhere-src-6.8.3.tar.xz
-        sha256: d2c896f7f1a6a7ea4c9f98cfe317272fd139703ddf612b86999f09e48aeef0e6
+        url: https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.9.3-src/pyside-setup-everywhere-src-6.9.3.tar.xz
+        sha256: 7cd2d5abb98f2e6f442b0e41f5fcf930e7312ae4b17f681316b1adc7b63bb172
         x-checker-data:
           type: html
           url: https://download.qt.io/official_releases/QtForPython/pyside6/
-          version-pattern: '>PySide6-(6\.8\.[\d.]*)-src/<'
+          version-pattern: '>PySide6-(6\.9\.[\d.]*)-src/<'
           url-template: https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-$version-src/pyside-setup-everywhere-src-$version0.$version1.$version2.tar.xz
       - type: shell
         commands:
