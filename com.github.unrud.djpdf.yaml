@@ -418,8 +418,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-5.tar.gz
-        sha256: 9ecb0c491c372de74579fc37b53e84d7a22a1bf02efb5bf940f811d3d0005e7f
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-8.tar.gz
+        sha256: acf76a9dafbd18f4dd7b24c45ca10c77e31289fc28e4da0ce5cc3929fd0aef16
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
@@ -555,8 +555,8 @@ modules:
       - pip3 install --prefix=/app *.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/60/e8/c0e05e4684d13459f93d312077a9a2efbe04d59c393bc2b8802248c908d4/webcolors-24.11.1-py3-none-any.whl
-        sha256: 515291393b4cdf0eb19c155749a096f779f7d909f7cceea072791cb9095b92e9
+        url: https://files.pythonhosted.org/packages/e2/cc/e097523dd85c9cf5d354f78310927f1656c422bd7b2613b2db3e3f9a0f2c/webcolors-25.10.0-py3-none-any.whl
+        sha256: 032c727334856fc0b968f63daa252a1ac93d33db2f5267756623c210e57a4f1d
         x-checker-data:
           type: pypi
           name: webcolors
@@ -568,8 +568,8 @@ modules:
       - pip3 install --no-build-isolation --prefix=/app .
     sources:
       - type: archive
-        url: https://github.com/giampaolo/psutil/archive/refs/tags/release-7.1.0.tar.gz
-        sha256: c359700138947e6c734af06110779f2d8234168e8fcba562ca1453be6af085c2
+        url: https://github.com/giampaolo/psutil/archive/refs/tags/release-7.1.2.tar.gz
+        sha256: c35bcc72850dc161f2833e61d21a0d2efbc7002bf3d639f02d803fcd4f6072a1
         x-checker-data:
           type: json
           url: https://api.github.com/repos/giampaolo/psutil/tags
