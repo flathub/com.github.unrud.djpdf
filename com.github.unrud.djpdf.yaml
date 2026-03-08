@@ -418,8 +418,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-13.tar.gz
-        sha256: 3617bffe497690ffe5b731227d026db1150e138ddb129481a1e202442e558512
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-16.tar.gz
+        sha256: aadfa67a104d14a35339de0f2cc286c973a0f43329770c69e9667a22208750fb
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
@@ -499,8 +499,8 @@ modules:
       - pip3 install --no-build-isolation --prefix=/app .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz
-        sha256: 360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3
+        url: https://files.pythonhosted.org/packages/56/db/b8721d71d945e6a8ac63c0fc900b2067181dbb50805958d4d4661cf7d277/pytz-2026.1.post1.tar.gz
+        sha256: 3378dde6a0c3d26719182142c56e60c7f9af7e968076f31aae569d72a0358ee1
         x-checker-data:
           type: pypi
           name: pytz
@@ -565,8 +565,8 @@ modules:
       - pip3 install --no-build-isolation --prefix=/app .
     sources:
       - type: archive
-        url: https://github.com/giampaolo/psutil/archive/refs/tags/release-7.2.1.tar.gz
-        sha256: 221eca326a94fc0c6aff9cfe7b9e053b54bd72678f5006c6d930e8cb26f04b25
+        url: https://github.com/giampaolo/psutil/archive/refs/tags/release-7.2.2.tar.gz
+        sha256: 38f406bf21acc67e45f414b7980463b2e6e6270ba3616ffd41995d997078cbe6
         x-checker-data:
           type: json
           url: https://api.github.com/repos/giampaolo/psutil/tags
