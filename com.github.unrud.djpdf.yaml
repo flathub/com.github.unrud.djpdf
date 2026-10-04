@@ -375,8 +375,8 @@ modules:
   - name: imagemagick
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-31.tar.gz
-        sha256: 34d9cc3acddc3e3c429d23af60eda5ceaac477a8b296ddb9469f773f44a80a5f
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-32.tar.gz
+        sha256: 940e349f0ef394e658fd57400b83d1d7a81b954f6e7bdbfbfad31b2718c10add
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
@@ -391,8 +391,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
       - type: archive
-        url: https://github.com/qpdf/qpdf/releases/download/v12.4.1/qpdf-12.4.1.tar.gz
-        sha256: f045aa277be2356ff53a89a8622945958291177d2483afc20ede7c8a8cd3873c
+        url: https://github.com/qpdf/qpdf/releases/download/v12.4.2/qpdf-12.4.2.tar.gz
+        sha256: 8a58af5b6141319287c1883bec8bd1bd545b7567b7fc5e6ce5d25a1c85f36397
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qpdf/qpdf/releases/latest
@@ -456,8 +456,8 @@ modules:
       - pip3 install --no-build-isolation --prefix=/app .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/fb/48/fb042503b6ca6cd271261dc559fd6432f7d8c713153e9ec5c591af4dfc1c/pytz-2026.3.post1.tar.gz
-        sha256: 2211d3fcf9a797d3405cac96ac7f61d80e6a644f72a3309607282fe8a2010c5d
+        url: https://files.pythonhosted.org/packages/14/21/d83d6ef28c4c912c4bb4d1dcf591f7b8c6bde87b9c66f9f454677314e16d/pytz-2026.5.tar.gz
+        sha256: fa23724b9c486543b9ff54a327ee7569ac83ade54bb9afd0fc18676620401c86
         x-checker-data:
           type: pypi
           name: pytz
